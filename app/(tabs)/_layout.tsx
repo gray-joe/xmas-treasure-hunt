@@ -43,8 +43,8 @@ export default function TabLayout() {
           backgroundColor: "#1a4d2e",
           borderTopColor: "#2d5a3d",
         },
-        tabBarActiveTintColor: "#90ee90",
-        tabBarInactiveTintColor: "#6b8e6b",
+        tabBarActiveTintColor: "#FFD700",
+        tabBarInactiveTintColor: "#cccccc",
       }}
     >
       <Tabs.Screen
@@ -69,7 +69,7 @@ export default function TabLayout() {
           title: "Puzzle 2",
           tabBarIcon: ({ color, size }) => {
             const isUnlocked = unlockedPuzzles.has(2);
-            return getTabIcon(2, isUnlocked ? color : "#6b8e6b", size);
+            return getTabIcon(2, isUnlocked ? color : "#cccccc", size);
           },
           tabBarItemStyle: unlockedPuzzles.has(2) ? undefined : { opacity: 0.5 },
         }}
@@ -80,7 +80,7 @@ export default function TabLayout() {
           title: "Puzzle 3",
           tabBarIcon: ({ color, size }) => {
             const isUnlocked = unlockedPuzzles.has(3);
-            return getTabIcon(3, isUnlocked ? color : "#6b8e6b", size);
+            return getTabIcon(3, isUnlocked ? color : "#cccccc", size);
           },
           tabBarItemStyle: unlockedPuzzles.has(3) ? undefined : { opacity: 0.5 },
         }}
@@ -91,7 +91,7 @@ export default function TabLayout() {
           title: "Puzzle 4",
           tabBarIcon: ({ color, size }) => {
             const isUnlocked = unlockedPuzzles.has(4);
-            return getTabIcon(4, isUnlocked ? color : "#6b8e6b", size);
+            return getTabIcon(4, isUnlocked ? color : "#cccccc", size);
           },
           tabBarItemStyle: unlockedPuzzles.has(4) ? undefined : { opacity: 0.5 },
         }}
@@ -102,7 +102,7 @@ export default function TabLayout() {
           title: "Puzzle 5",
           tabBarIcon: ({ color, size }) => {
             const isUnlocked = unlockedPuzzles.has(5);
-            return getTabIcon(5, isUnlocked ? color : "#6b8e6b", size);
+            return getTabIcon(5, isUnlocked ? color : "#cccccc", size);
           },
           tabBarItemStyle: unlockedPuzzles.has(5) ? undefined : { opacity: 0.5 },
         }}

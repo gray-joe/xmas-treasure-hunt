@@ -32,7 +32,14 @@ export default function HomeScreen() {
 
   const handlePuzzlePress = (puzzleNum: number) => {
     if (puzzleStatuses[puzzleNum - 1]?.unlocked) {
-      router.push(`/(tabs)/puzzle${puzzleNum}`);
+      const routes = {
+        1: "/(tabs)/puzzle1",
+        2: "/(tabs)/puzzle2",
+        3: "/(tabs)/puzzle3",
+        4: "/(tabs)/puzzle4",
+        5: "/(tabs)/puzzle5",
+      };
+      router.push(routes[puzzleNum as keyof typeof routes] as any);
     }
   };
 
@@ -77,10 +84,10 @@ export default function HomeScreen() {
                   size={32}
                   color={
                     completed
-                      ? "#90ee90"
+                      ? "#FFD700"
                       : unlocked
-                      ? "#90ee90"
-                      : "#6b8e6b"
+                      ? "#ffffff"
+                      : "#cccccc"
                   }
                 />
                 <View>
@@ -120,14 +127,14 @@ const styles = StyleSheet.create({
     flexGrow: 1,
   },
   title: {
-    color: "#90ee90",
+    color: "#ffffff",
     fontSize: 32,
     fontWeight: "bold",
     marginBottom: 10,
     textAlign: "center",
   },
   subtitle: {
-    color: "#6b8e6b",
+    color: "#cccccc",
     fontSize: 18,
     marginBottom: 30,
     textAlign: "center",
@@ -140,7 +147,7 @@ const styles = StyleSheet.create({
   puzzleCard: {
     backgroundColor: "#2d5a3d",
     borderWidth: 2,
-    borderColor: "#90ee90",
+    borderColor: "#FFD700",
     borderRadius: 12,
     padding: 20,
     flexDirection: "row",
@@ -148,11 +155,11 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   puzzleCardLocked: {
-    borderColor: "#6b8e6b",
+    borderColor: "#cccccc",
     opacity: 0.6,
   },
   puzzleCardCompleted: {
-    borderColor: "#90ee90",
+    borderColor: "#FFD700",
     backgroundColor: "#2d5a3d",
   },
   puzzleHeader: {
@@ -161,12 +168,12 @@ const styles = StyleSheet.create({
     gap: 12,
   },
   puzzleNumber: {
-    color: "#90ee90",
+    color: "#ffffff",
     fontSize: 20,
     fontWeight: "bold",
   },
   guessCount: {
-    color: "#6b8e6b",
+    color: "#cccccc",
     fontSize: 14,
     marginTop: 2,
   },
@@ -174,16 +181,16 @@ const styles = StyleSheet.create({
     alignItems: "flex-end",
   },
   statusTextCompleted: {
-    color: "#90ee90",
+    color: "#FFD700",
     fontSize: 16,
     fontWeight: "bold",
   },
   statusTextUnlocked: {
-    color: "#90ee90",
+    color: "#ffffff",
     fontSize: 16,
   },
   statusTextLocked: {
-    color: "#6b8e6b",
+    color: "#cccccc",
     fontSize: 16,
   },
 });

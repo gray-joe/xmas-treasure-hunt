@@ -74,7 +74,7 @@ export default function Puzzle2Screen() {
   if (!isUnlocked) {
     return (
       <View style={styles.container}>
-        <Ionicons name="lock-closed" size={64} color="#6b8e6b" />
+        <Ionicons name="lock-closed" size={64} color="#cccccc" />
         <Text style={styles.lockedTitle}>Puzzle 2 is Locked</Text>
         <Text style={styles.lockedText}>
           Complete Puzzle 1 to unlock this puzzle
@@ -109,7 +109,7 @@ export default function Puzzle2Screen() {
         value={input}
         onChangeText={setInput}
         placeholder="Enter your answer..."
-        placeholderTextColor="#6b8e6b"
+        placeholderTextColor="#cccccc"
         autoCapitalize="none"
         autoCorrect={false}
         editable={!isCompleted}
@@ -149,13 +149,13 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    color: "#90ee90",
+    color: "#ffffff",
     fontSize: 28,
     fontWeight: "bold",
     marginBottom: 20,
   },
   successBadge: {
-    backgroundColor: "#90ee90",
+    backgroundColor: "#FFD700",
     paddingHorizontal: 20,
     paddingVertical: 8,
     borderRadius: 20,
@@ -172,22 +172,22 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 20,
     borderWidth: 2,
-    borderColor: "#90ee90",
+    borderColor: "#FFD700",
     minWidth: 200,
     alignItems: "center",
   },
   answerLabel: {
-    color: "#6b8e6b",
+    color: "#cccccc",
     fontSize: 14,
     marginBottom: 5,
   },
   answerText: {
-    color: "#90ee90",
+    color: "#ffffff",
     fontSize: 24,
     fontWeight: "bold",
   },
   question: {
-    color: "#90ee90",
+    color: "#ffffff",
     fontSize: 18,
     textAlign: "center",
     marginBottom: 30,
@@ -200,16 +200,16 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: "#2d5a3d",
     borderWidth: 2,
-    borderColor: "#90ee90",
+    borderColor: "#FFD700",
     borderRadius: 8,
     paddingHorizontal: 15,
-    color: "#90ee90",
+    color: "#ffffff",
     fontSize: 16,
     marginBottom: 15,
   },
   inputDisabled: {
     opacity: 0.6,
-    borderColor: "#6b8e6b",
+    borderColor: "#cccccc",
   },
   message: {
     fontSize: 16,
@@ -218,21 +218,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   successMessage: {
-    color: "#90ee90",
+    color: "#FFD700",
     fontWeight: "bold",
   },
   errorMessage: {
-    color: "#ff6b6b",
+    color: "#DC143C",
   },
   button: {
-    backgroundColor: "#90ee90",
+    backgroundColor: "#FFD700",
     paddingHorizontal: 40,
     paddingVertical: 15,
     borderRadius: 8,
     minWidth: 120,
   },
   buttonDisabled: {
-    backgroundColor: "#6b8e6b",
+    backgroundColor: "#cccccc",
     opacity: 0.7,
   },
   buttonText: {
@@ -242,14 +242,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   lockedTitle: {
-    color: "#6b8e6b",
+    color: "#cccccc",
     fontSize: 28,
     fontWeight: "bold",
     marginTop: 20,
     marginBottom: 10,
   },
   lockedText: {
-    color: "#6b8e6b",
+    color: "#cccccc",
     fontSize: 16,
     textAlign: "center",
   },

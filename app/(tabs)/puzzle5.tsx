@@ -147,8 +147,8 @@ export default function Puzzle5Screen() {
 
   if (!isUnlocked) {
     return (
-      <View style={styles.container}>
-        <Ionicons name="lock-closed" size={64} color="#6b8e6b" />
+      <View style={styles.lockedContainer}>
+        <Ionicons name="lock-closed" size={64} color="#cccccc" />
         <Text style={styles.lockedTitle}>Puzzle 5 is Locked</Text>
         <Text style={styles.lockedText}>
           Complete Puzzle 4 to unlock this puzzle
@@ -244,26 +244,33 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#1a4d2e",
   },
+  lockedContainer: {
+    flex: 1,
+    backgroundColor: "#1a4d2e",
+    justifyContent: "center",
+    alignItems: "center",
+    padding: 20,
+  },
   scrollContainer: {
     padding: 20,
     alignItems: "center",
     flexGrow: 1,
   },
   title: {
-    color: "#90ee90",
+    color: "#ffffff",
     fontSize: 28,
     fontWeight: "bold",
     marginBottom: 10,
   },
   question: {
-    color: "#90ee90",
+    color: "#ffffff",
     fontSize: 18,
     textAlign: "center",
     marginBottom: 10,
     paddingHorizontal: 10,
   },
   hint: {
-    color: "#6b8e6b",
+    color: "#cccccc",
     fontSize: 14,
     textAlign: "center",
     fontStyle: "italic",
@@ -271,7 +278,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   successBadge: {
-    backgroundColor: "#90ee90",
+    backgroundColor: "#FFD700",
     paddingHorizontal: 20,
     paddingVertical: 8,
     borderRadius: 20,
@@ -294,14 +301,14 @@ const styles = StyleSheet.create({
     marginBottom: 12,
   },
   clueNumber: {
-    color: "#90ee90",
+    color: "#ffffff",
     fontSize: 16,
     fontWeight: "bold",
     width: 25,
     marginRight: 10,
   },
   clueText: {
-    color: "#90ee90",
+    color: "#ffffff",
     fontSize: 16,
     flex: 1,
   },
@@ -315,9 +322,9 @@ const styles = StyleSheet.create({
   gridCell: {
     backgroundColor: "#2d5a3d",
     borderWidth: 2,
-    borderColor: "#90ee90",
+    borderColor: "#FFD700",
     borderRadius: 8,
-    color: "#90ee90",
+    color: "#ffffff",
     fontSize: 20,
     fontWeight: "bold",
     textAlign: "center",
@@ -326,7 +333,7 @@ const styles = StyleSheet.create({
   },
   inputDisabled: {
     opacity: 0.6,
-    borderColor: "#6b8e6b",
+    borderColor: "#cccccc",
   },
   message: {
     fontSize: 16,
@@ -335,14 +342,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   successMessage: {
-    color: "#90ee90",
+    color: "#FFD700",
     fontWeight: "bold",
   },
   errorMessage: {
-    color: "#ff6b6b",
+    color: "#DC143C",
   },
   button: {
-    backgroundColor: "#90ee90",
+    backgroundColor: "#FFD700",
     paddingHorizontal: 40,
     paddingVertical: 15,
     borderRadius: 8,
@@ -350,7 +357,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   buttonDisabled: {
-    backgroundColor: "#6b8e6b",
+    backgroundColor: "#cccccc",
     opacity: 0.7,
   },
   buttonText: {
@@ -360,14 +367,14 @@ const styles = StyleSheet.create({
     textAlign: "center",
   },
   lockedTitle: {
-    color: "#6b8e6b",
+    color: "#cccccc",
     fontSize: 28,
     fontWeight: "bold",
     marginTop: 20,
     marginBottom: 10,
   },
   lockedText: {
-    color: "#6b8e6b",
+    color: "#cccccc",
     fontSize: 16,
     textAlign: "center",
   },

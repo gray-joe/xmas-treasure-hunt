@@ -149,7 +149,7 @@ export default function Puzzle1Screen() {
               onChangeText={(text) => handleInputChange(index, text)}
               onKeyPress={({ nativeEvent }) => handleKeyPress(index, nativeEvent.key)}
               placeholder=""
-              placeholderTextColor="#6b8e6b"
+              placeholderTextColor="#cccccc"
               keyboardType="number-pad"
               maxLength={1}
               editable={!isCompleted}
@@ -173,7 +173,7 @@ export default function Puzzle1Screen() {
               onChangeText={(text) => handleInputChange(index + 5, text)}
               onKeyPress={({ nativeEvent }) => handleKeyPress(index + 5, nativeEvent.key)}
               placeholder=""
-              placeholderTextColor="#6b8e6b"
+              placeholderTextColor="#cccccc"
               keyboardType="number-pad"
               maxLength={1}
               editable={!isCompleted}
@@ -217,19 +217,19 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   title: {
-    color: "#90ee90",
+    color: "#ffffff",
     fontSize: 28,
     fontWeight: "bold",
     marginBottom: 10,
   },
   clueLabel: {
-    color: "#6b8e6b",
+    color: "#cccccc",
     fontSize: 16,
     fontStyle: "italic",
     marginBottom: 20,
   },
   successBadge: {
-    backgroundColor: "#90ee90",
+    backgroundColor: "#FFD700",
     paddingHorizontal: 20,
     paddingVertical: 8,
     borderRadius: 20,
@@ -246,11 +246,11 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     marginBottom: 20,
     borderWidth: 2,
-    borderColor: "#90ee90",
+    borderColor: "#FFD700",
     alignItems: "center",
   },
   answerLabel: {
-    color: "#6b8e6b",
+    color: "#cccccc",
     fontSize: 14,
     marginBottom: 10,
   },
@@ -269,14 +269,14 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: "#1a4d2e",
     borderWidth: 2,
-    borderColor: "#90ee90",
+    borderColor: "#FFD700",
     borderRadius: 8,
     justifyContent: "center",
     alignItems: "center",
     minWidth: 30,
   },
   answerDigitText: {
-    color: "#90ee90",
+    color: "#ffffff",
     fontSize: 24,
     fontWeight: "bold",
   },
@@ -296,9 +296,9 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor: "#2d5a3d",
     borderWidth: 2,
-    borderColor: "#90ee90",
+    borderColor: "#ffffff",
     borderRadius: 8,
-    color: "#90ee90",
+    color: "#ffffff",
     fontSize: 24,
     fontWeight: "bold",
     textAlign: "center",
@@ -307,7 +307,7 @@ const styles = StyleSheet.create({
   },
   inputDisabled: {
     opacity: 0.6,
-    borderColor: "#6b8e6b",
+    borderColor: "#cccccc",
   },
   message: {
     fontSize: 16,
@@ -316,21 +316,21 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   successMessage: {
-    color: "#90ee90",
+    color: "#FFD700",
     fontWeight: "bold",
   },
   errorMessage: {
-    color: "#ff6b6b",
+    color: "#DC143C",
   },
   button: {
-    backgroundColor: "#90ee90",
+    backgroundColor: "#FFD700",
     paddingHorizontal: 40,
     paddingVertical: 15,
     borderRadius: 8,
     minWidth: 120,
   },
   buttonDisabled: {
-    backgroundColor: "#6b8e6b",
+    backgroundColor: "#cccccc",
     opacity: 0.7,
   },
   buttonText: {
