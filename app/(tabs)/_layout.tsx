@@ -4,7 +4,7 @@ import { Tabs } from "expo-router";
 import { useEffect, useState } from "react";
 
 export default function TabLayout() {
-  const [unlockedPuzzles, setUnlockedPuzzles] = useState<Set<number>>(new Set([1]));
+  const [unlockedPuzzles, setUnlockedPuzzles] = useState<Set<number>>(new Set());
 
   useEffect(() => {
     const checkUnlocked = async () => {

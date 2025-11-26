@@ -1,4 +1,4 @@
-import { incrementPuzzleGuessCount, isPuzzleUnlocked, PUZZLE_STORAGE_KEYS } from "@/utils/puzzleState";
+import { getPuzzleLockReason, getPuzzleUnlockDate, incrementPuzzleGuessCount, isPuzzleUnlocked, PUZZLE_STORAGE_KEYS } from "@/utils/puzzleState";
 import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useState } from "react";
@@ -14,6 +14,7 @@ export default function Puzzle2Screen() {
   const [input, setInput] = useState("");
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState<"success" | "error" | "">("");
+  const [lockReason, setLockReason] = useState<"date" | "completion" | null>(null);
 
   useEffect(() => {
     checkStatus();
@@ -30,6 +31,10 @@ export default function Puzzle2Screen() {
   const checkStatus = async () => {
     const unlocked = await isPuzzleUnlocked(2);
     setIsUnlocked(unlocked);
+    if (!unlocked) {
+      const reason = await getPuzzleLockReason(2);
+      setLockReason(reason);
+    }
   };
 
   const loadCompletionState = async () => {
@@ -72,12 +77,17 @@ export default function Puzzle2Screen() {
   };
 
   if (!isUnlocked) {
+    const unlockDate = getPuzzleUnlockDate(2);
+    const dateStr = unlockDate.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+    
     return (
       <View style={styles.container}>
         <Ionicons name="lock-closed" size={64} color="#cccccc" />
         <Text style={styles.lockedTitle}>Puzzle 2 is Locked</Text>
         <Text style={styles.lockedText}>
-          Complete Puzzle 1 to unlock this puzzle
+          {lockReason === "date" 
+            ? `This puzzle unlocks on ${dateStr}`
+            : "Complete Puzzle 1 to unlock this puzzle"}
         </Text>
       </View>
     );

@@ -1,4 +1,5 @@
-import { incrementPuzzleGuessCount } from "@/utils/puzzleState";
+import { getPuzzleLockReason, getPuzzleUnlockDate, incrementPuzzleGuessCount, isPuzzleUnlocked } from "@/utils/puzzleState";
+import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useEffect, useRef, useState } from "react";
 import { Dimensions, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
@@ -12,10 +13,12 @@ const CONTAINER_PADDING = 20;
 const ROW_PADDING = 10;
 
 export default function Puzzle1Screen() {
+  const [isUnlocked, setIsUnlocked] = useState(false);
   const [inputs, setInputs] = useState<string[]>(Array(INPUT_COUNT).fill(""));
   const [isCompleted, setIsCompleted] = useState(false);
   const [message, setMessage] = useState("");
   const [messageType, setMessageType] = useState<"success" | "error" | "">("");
+  const [lockReason, setLockReason] = useState<"date" | "completion" | null>(null);
   const inputRefs = useRef<(TextInput | null)[]>([]);
 
   const screenWidth = Dimensions.get("window").width;
@@ -29,8 +32,25 @@ export default function Puzzle1Screen() {
   const inputWidth = calculateInputWidth(9);
 
   useEffect(() => {
-    loadCompletionState();
+    checkStatus();
+    const interval = setInterval(checkStatus, 500);
+    return () => clearInterval(interval);
   }, []);
+
+  useEffect(() => {
+    if (isUnlocked) {
+      loadCompletionState();
+    }
+  }, [isUnlocked]);
+
+  const checkStatus = async () => {
+    const unlocked = await isPuzzleUnlocked(1);
+    setIsUnlocked(unlocked);
+    if (!unlocked) {
+      const reason = await getPuzzleLockReason(1);
+      setLockReason(reason);
+    }
+  };
 
   const loadCompletionState = async () => {
     try {
@@ -99,6 +119,21 @@ export default function Puzzle1Screen() {
       setMessageType("error");
     }
   };
+
+  if (!isUnlocked) {
+    const unlockDate = getPuzzleUnlockDate(1);
+    const dateStr = unlockDate.toLocaleDateString("en-GB", { day: "numeric", month: "long", year: "numeric" });
+    
+    return (
+      <View style={styles.container}>
+        <Ionicons name="lock-closed" size={64} color="#cccccc" />
+        <Text style={styles.lockedTitle}>Puzzle 1 is Locked</Text>
+        <Text style={styles.lockedText}>
+          This puzzle unlocks on {dateStr}
+        </Text>
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
@@ -337,6 +372,18 @@ const styles = StyleSheet.create({
     color: "#1a4d2e",
     fontSize: 18,
     fontWeight: "bold",
+    textAlign: "center",
+  },
+  lockedTitle: {
+    color: "#cccccc",
+    fontSize: 28,
+    fontWeight: "bold",
+    marginTop: 20,
+    marginBottom: 10,
+  },
+  lockedText: {
+    color: "#cccccc",
+    fontSize: 16,
     textAlign: "center",
   },
 });

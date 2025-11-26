@@ -53,6 +53,10 @@ export default function HomeScreen() {
     >
       <Text style={styles.title}>Christmas Treasure Hunt</Text>
       <Text style={styles.subtitle}>Puzzle Status</Text>
+      
+      <Text style={styles.message}>
+        Complete each puzzle by the time of the Xmas Party, least amount of guesses wins, good luck!
+      </Text>
 
       <View style={styles.puzzlesContainer}>
         {[1, 2, 3, 4, 5].map((puzzleNum) => {
@@ -136,8 +140,16 @@ const styles = StyleSheet.create({
   subtitle: {
     color: "#cccccc",
     fontSize: 18,
-    marginBottom: 30,
+    marginBottom: 20,
     textAlign: "center",
+  },
+  message: {
+    color: "#ffffff",
+    fontSize: 16,
+    textAlign: "center",
+    marginBottom: 30,
+    paddingHorizontal: 20,
+    lineHeight: 24,
   },
   puzzlesContainer: {
     width: "100%",
